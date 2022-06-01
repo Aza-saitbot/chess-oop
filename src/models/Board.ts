@@ -6,10 +6,13 @@ import {Queen} from "./figures/Queen";
 import {Bishop} from "./figures/Bishop";
 import {Knight} from "./figures/Knight";
 import {Rook} from "./figures/Rook";
+import {Figure} from "./figures/Figure";
 
 
 export class Board {
     cells: Cell[][] = []
+    lostBlackFigures:Figure[]=[]
+    lostWhiteFigures:Figure[]=[]
 
 
     public initCells() {
@@ -40,6 +43,8 @@ export class Board {
     public getCopyBoard():Board{
         const newBoard=new Board()
         newBoard.cells =this.cells
+        newBoard.lostWhiteFigures=this.lostWhiteFigures
+        newBoard.lostBlackFigures=this.lostBlackFigures
         return newBoard
     }
 
